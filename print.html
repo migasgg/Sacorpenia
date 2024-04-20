@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="printStyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 3rem;
+        font-family: "Roboto", sans-serif;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      header h2 {
+        color: #36680d;
+        font-weight: bolder;
+      }
+
+      article h1 {
+        text-align: center;
+        background: #36680d;
+        font-style: italic;
+        color: white;
+        padding: 0.4rem;
+        font-size: 2rem;
+        font-weight: 900;
+        margin-bottom: 1rem;
+      }
+
+      .dados {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .coleta {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .coleta img {
+        width: 300px;
+        margin-top: 1rem;
+      }
+
+      table {
+        border-collapse: none;
+        font-family: sans-serif;
+        font-size: 0.8rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      caption {
+        padding: 10px;
+        font-size: 1.3rem;
+      }
+
+      thead,
+      tfoot {
+        background-color: #36690d;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid rgb(160 160 160);
+        padding: 8px 10px;
+      }
+
+      td:last-of-type {
+        text-align: center;
+      }
+
+      th {
+        color: white;
+      }
+
+      .interpretracao,
+      .resultado {
+        margin-bottom: 1rem;
+      }
+
+      .interpretracao h2,
+      .resultado h2 {
+        text-align: center;
+        background: #36680d;
+        color: white;
+        padding: 0.3rem;
+        font-size: 1.1rem;
+        font-weight: 900;
+        margin-bottom: 1rem;
+      }
+
+      .interpretracao p,
+      .resultado p {
+        line-height: 1.6rem;
+        font-weight: bolder;
+      }
+
+      .resultado p {
+        text-align: center;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15rem;
+      }
+
+      footer img {
+        width: 100px;
+      }
+
+      .loc p {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h2>Esp. Jancinẽia Oliveira</h2>
+        <strong>Cref: 0486-G/PI</strong>
+      </div>
+      <div>
+        <h2>Dr Jancineide Carvalho</h2>
+        <strong>Cref: 0274-G/PI</strong>
+      </div>
+    </header>
+    <main>
+      <article>
+        <h1>DIAGNÓSTICO DE SARCOPENIA</h1>
+        <div class="dados">
+          <div>
+            <p>NOME: <span></span></p>
+            <p>IDADE: <span></span> ANOS</p>
+          </div>
+          <div>
+            <p>SEXO: ( )F ( )M</p>
+            <p>DATA: <span></span></p>
+          </div>
+        </div>
+        <div class="coleta">
+          <div>
+            <table>
+              <caption>
+                Resultados da Coleta
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Coleta de Dados</th>
+                  <th scope="col">Valores</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Sarc-Calf (somatório dos pontos - referência >= 11)</td>
+                  <td>16</td>
+                </tr>
+                <tr>
+                  <td>Test TSL (>= 15 seg)</td>
+                  <td>15</td>
+                </tr>
+                <tr>
+                  <td>Bioimpedância (MMEA)</td>
+                  <td>33,7</td>
+                </tr>
+                <tr>
+                  <td>Test TUG (>= 20 s)</td>
+                  <td>9,8</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <img src="sarcopenia.jpg" />
+          </div>
+        </div>
+      </article>
+      <article class="interpretracao">
+        <h2>INTERPRETAÇÃO DOS TESTES</h2>
+        <p>Interpretação do Sarc-Calf: Sarcopenia Positiva</p>
+        <p>Teste TSL: Fraqueza muscular</p>
+        <p>Bioimpedância: Massa muscular normal</p>
+        <p>Test TUG (tempo em segundos): Velocidade de caminhada normal</p>
+      </article>
+      <article class="resultado">
+        <h2>RESULTADO FINAL</h2>
+        <p>
+          Sarcopenia positiva e indicação de treinamento de força progressiva
+        </p>
+      </article>
+    </main>
+    <footer>
+      <div><img src="logo.png" /></div>
+      <div class="loc">
+        <p>Espaço MEDFISIO</p>
+        <p>Rua Professor Joca Vieira, 1400</p>
+        <p>(86) 9 9803-7584</p>
+        <p>@bemestar_saudeintegral</p>
+        <p>Bairro Fátima, 64049-440</p>
+      </div>
+    </footer>
+  </body>
+</html>

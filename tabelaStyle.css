@@ -1,0 +1,59 @@
+.base_graf_Em_Busca {
+  width: 90%; 
+  background-color: aliceblue;
+  height: 150px;
+  margin: auto;
+}
+.Busca_nome {
+  width: 18%;
+  height: 50px; 
+  float: left;
+}
+.Busca_valor {
+  width: 82%;
+  background-color: lightblue;
+  height: 50px; 
+  float: right;
+}
+
+.Busca_nome_centralizado {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.insert_busca_width {
+  background-color: black;
+  height: 1rem;
+  color: white;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 1rem;
+}
+
+.peso {
+  background-color: #b9bb91;
+}
+
+.pesoValue div {
+  width: 10%;
+}
+
+.muscular {
+  background-color: #a0c6a1;
+}
+
+.muscularValue div {
+  width: 20%;
+}
+
+.gordura {
+  background-color: #90c0aa;
+}
+
+.gorduraValue div {
+  width: 25%;
+}

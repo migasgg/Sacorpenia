@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 3rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+header h2 {
+  color: #36680d;
+  font-weight: bolder;
+}
+
+article h1 {
+  text-align: center;
+  background: #36680d;
+  font-style: italic;
+  color: white;
+  padding: 0.4rem;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.dados {
+  display: flex;
+  justify-content: space-between;
+}
+
+.coleta {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.coleta img {
+  width: 300px;
+  margin-top: 1rem;
+}
+
+table {
+  border-collapse: none;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+caption {
+  padding: 10px;
+  font-size: 1.3rem;
+}
+
+thead,
+tfoot {
+  background-color: #36690d;
+}
+
+th,
+td {
+  border-bottom: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+}
+
+td:last-of-type {
+  text-align: center;
+}
+
+th {
+  color: white;
+}
+
+.interpretracao,
+.resultado {
+  margin-bottom: 1rem;
+}
+
+.interpretracao h2,
+.resultado h2 {
+  text-align: center;
+  background: #36680d;
+  color: white;
+  padding: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.interpretracao p,
+.resultado p {
+  line-height: 1.6rem;
+  font-weight: bolder;
+}
+
+.resultado p {
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15rem;
+}
+
+footer img {
+  width: 100px;
+}
+
+.loc p {
+  text-align: right;
+}
