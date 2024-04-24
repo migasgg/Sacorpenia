@@ -1,39 +1,44 @@
-const cName = document.querySelector('#name')
-const massaCorporal = document.querySelector('#massaCorporal')
-const etnia = document.querySelector('#etnia')
-const est = document.querySelector('#est')
-const sexo = document.querySelector('#sexo')
-const idade = document.querySelector('#idade')
-const btnPrint = document.querySelector('#imprimir')
+const cName = document.querySelector("#name");
+const massaCorporal = document.querySelector("#massaCorporal");
+const etnia = document.querySelector("#etnia");
+const est = document.querySelector("#est");
+const sexo = document.querySelector("#sexo");
+const idade = document.querySelector("#idade");
+const btnPrint = document.querySelector("#imprimir");
 
-btnPrint.addEventListener('click', massaMuscularEsqueletica)
+btnPrint.addEventListener("click", massaMuscularEsqueletica);
 
 function massaMuscularEsqueletica(event) {
   // event.preventDefault()
-  
-  const cNameValue = cName.value
-  const altura = est.value.split('')
-  altura.splice(1, 0, ".")
-  const massaCorporalValue = Number(massaCorporal.value)
-  const alturaValue = Number(altura.join(''))
-  const idadeValue = Number(idade.value)
-  const sexoValue = Number(sexo.value)
-  const etniaValue = Number(etnia.value) 
 
-  const mme = ((((0.244 * massaCorporalValue) + (7.8 * alturaValue)) - ((0.098 * idadeValue) + ((6.6 * sexoValue) + etniaValue))) - 3.3).toFixed(2)
+  const cNameValue = cName.value;
+  const altura = est.value.split("");
+  altura.splice(1, 0, ".");
+  const massaCorporalValue = Number(massaCorporal.value);
+  const alturaValue = Number(altura.join(""));
+  const idadeValue = Number(idade.value);
+  const sexoValue = Number(sexo.value);
+  const etniaValue = Number(etnia.value);
+
+  const mme = (
+    0.244 * massaCorporalValue +
+    7.8 * alturaValue -
+    (0.098 * idadeValue + (6.6 * sexoValue + etniaValue)) -
+    3.3
+  ).toFixed(2);
 
   function femaleOrMale(sex) {
     if (sex === 0) {
-      return '(x)F ( )M'
-    } 
+      return "(x)F ( )M";
+    }
     if (sex === 1) {
-      return '( )F (x)M'
+      return "( )F (x)M";
     }
   }
 
-  const day = new Date
+  const day = new Date();
 
-  const win = window.open('print.html')
+  const win = window.open("print.html");
 
   const html = `<!DOCTYPE html>
   <html lang="en">
@@ -96,7 +101,7 @@ function massaMuscularEsqueletica(event) {
                   </tr>
                   <tr>
                     <td>Bioimpedância (MMEA)</td>
-                    <td>33,7</td>
+                    <td>${mme}</td>
                   </tr>
                   <tr>
                     <td>Test TUG (>= 20 s)</td>
@@ -106,7 +111,7 @@ function massaMuscularEsqueletica(event) {
               </table>
             </div>
             <div>
-              <img src="sarcopenia.jpg" />
+              <img src="sarcopenia.png" />
             </div>
           </div>
         </article>
@@ -135,12 +140,8 @@ function massaMuscularEsqueletica(event) {
         </div>
       </footer>
     </body>
-  </html>`
+  </html>`;
 
-  win.document.write(html)
+  win.document.write(html);
   // setTimeout(win.print(), 30000);
-
-  
-  
-
 }
