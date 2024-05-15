@@ -9,7 +9,7 @@ const btnPrint = document.querySelector("#imprimir");
 btnPrint.addEventListener("click", massaMuscularEsqueletica);
 
 function massaMuscularEsqueletica(event) {
-  // event.preventDefault()
+  event.preventDefault()
 
   const cNameValue = cName.value;
   const altura = est.value.split("");
@@ -20,12 +20,14 @@ function massaMuscularEsqueletica(event) {
   const sexoValue = Number(sexo.value);
   const etniaValue = Number(etnia.value);
 
-  const mme = (
-    0.244 * massaCorporalValue +
-    7.8 * alturaValue -
-    (0.098 * idadeValue + (6.6 * sexoValue + etniaValue)) -
-    3.3
-  ).toFixed(2);
+  // const mme = (
+  //   0.244 * massaCorporalValue +
+  //   7.8 * alturaValue -
+  //   (0.098 * idadeValue + (6.6 * sexoValue + etniaValue)) -
+  //   3.3
+  // ).toFixed(2);
+
+  const mme = ((0.244 * massaCorporalValue) + (7.8 * alturaValue) + (6.6 * sexoValue) - (0.098 * idadeValue) + (etniaValue - 3.3)).toFixed(2)
 
   function femaleOrMale(sex) {
     if (sex === 0) {
@@ -143,5 +145,4 @@ function massaMuscularEsqueletica(event) {
   </html>`;
 
   win.document.write(html);
-  // setTimeout(win.print(), 30000);
 }

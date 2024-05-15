@@ -18,47 +18,47 @@
         <label for="name"
           >Nome do cliente
           <br>
-          <input type="text" name="name" id="name" required "/>
+          <input type="text" name="name" id="name" required value="Miguel"/>
         </label>
         <br>
         <br>
         <label for="massaCorporal"
           >Massa Corporal
           <br>
-          <input type="number" name="massaCorporal" id="massaCorporal" required />
+          <input type="number" name="massaCorporal" id="massaCorporal" required value="74"/>
         </label>
         <br>
         <br>
         <select name="etnia" id="etnia" required>
           <option value="" >Etnia</option>
-          <option value="0" >Branco</option>
+          <option value="0" selected>Branco</option>
           <option value="1.4">Negro</option>
           <option value="1.8"></option>
         </select>
         <br>
         <br>
         <label for="est"
-          >EST em centímetros
+          >Altura em centímetros
           <br>
-          <input type="number" name="est" id="est" required "/>
+          <input type="number" name="est" id="est" required value="186"/>
         </label>
         <br>
         <br>
         <select name="sexo" id="sexo" required>
           <option value="" >Sexo</option>
-          <option value="1">Masculino</option>
+          <option value="1" selected>Masculino</option>
           <option value="0">Feminino</option>
         </select>
         <br>
         <label for="idade"
           >Idade
           <br>
-          <input type="number" name="idade" id="idade" required />
+          <input type="number" name="idade" id="idade" required value="22"/>
         </label>
         <br> 
         <br>
         <button type="submit" id="imprimir">
-          Imprimir
+          Gerar laudo
         </button>
       </form>
       <script src="index.js"></script>
