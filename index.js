@@ -4,12 +4,19 @@ const etnia = document.querySelector("#etnia");
 const est = document.querySelector("#est");
 const sexo = document.querySelector("#sexo");
 const idade = document.querySelector("#idade");
+const carregar = document.querySelector("#carregar");
+const atravessar = document.querySelector("#atravessar");
+const levantar = document.querySelector("#levantar");
+const subir = document.querySelector("#subir");
+const cair = document.querySelector("#cair");
+const CP = document.querySelector("#CP");
+
 const btnPrint = document.querySelector("#imprimir");
 
 btnPrint.addEventListener("click", massaMuscularEsqueletica);
 
 function massaMuscularEsqueletica(event) {
-  event.preventDefault()
+  event.preventDefault();
 
   const cNameValue = cName.value;
   const altura = est.value.split("");
@@ -20,6 +27,37 @@ function massaMuscularEsqueletica(event) {
   const sexoValue = Number(sexo.value);
   const etniaValue = Number(etnia.value);
 
+  const carregarValue = Number(carregar.value);
+  const atravessarValue = Number(atravessar.value);
+  const levantarValue = Number(levantar.value);
+  const subirValue = Number(subir.value);
+  const cairValue = Number(cair.value);
+
+  const CPValue = Number(CP.value);
+
+  const CPponto = () => {
+    if (sexoValue === 1) {
+      if (CPValue <= 34) return 10;
+      else return 0;
+    } else {
+      if (CPValue <= 33) return 10;
+      else return 0;
+    }
+  };
+
+  function diagnosticoSarcopenia() {
+    const soma =
+      carregarValue +
+      atravessarValue +
+      levantarValue +
+      subirValue +
+      cairValue +
+      CPponto();
+    return soma;
+  }
+
+  const sarcCalf = diagnosticoSarcopenia();
+
   // const mme = (
   //   0.244 * massaCorporalValue +
   //   7.8 * alturaValue -
@@ -27,7 +65,13 @@ function massaMuscularEsqueletica(event) {
   //   3.3
   // ).toFixed(2);
 
-  const mme = ((0.244 * massaCorporalValue) + (7.8 * alturaValue) + (6.6 * sexoValue) - (0.098 * idadeValue) + (etniaValue - 3.3)).toFixed(2)
+  const mme = (
+    0.244 * massaCorporalValue +
+    7.8 * alturaValue +
+    6.6 * sexoValue -
+    0.098 * idadeValue +
+    (etniaValue - 3.3)
+  ).toFixed(2);
 
   function femaleOrMale(sex) {
     if (sex === 0) {
@@ -94,8 +138,8 @@ function massaMuscularEsqueletica(event) {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Sarc-Calf (somatório dos pontos - referência >= 11)</td>
-                    <td>16</td>
+                    <td>Sarc-Calf </td>
+                    <td>${sarcCalf}</td>
                   </tr>
                   <tr>
                     <td>Test TSL (>= 15 seg)</td>
@@ -119,7 +163,7 @@ function massaMuscularEsqueletica(event) {
         </article>
         <article class="interpretracao">
           <h2>INTERPRETAÇÃO DOS TESTES</h2>
-          <p>Interpretação do Sarc-Calf: Sarcopenia Positiva</p>
+          <p>Interpretação do Sarc-Calf: ${sarcCalf >= 11 ? "Sarcopenia Positiva": "Sarcopenia Negativa"}</p>
           <p>Teste TSL: Fraqueza muscular</p>
           <p>Bioimpedância: Massa muscular normal</p>
           <p>Test TUG (tempo em segundos): Velocidade de caminhada normal</p>
@@ -145,4 +189,5 @@ function massaMuscularEsqueletica(event) {
   </html>`;
 
   win.document.write(html);
+  console.log(pontos);
 }
