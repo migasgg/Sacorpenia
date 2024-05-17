@@ -18,7 +18,7 @@
         <label for="name"
           >Nome do cliente
           <br />
-          <input type="text" name="name" id="name" value="Miguel" />
+          <input type="text" name="name" id="name"/>
         </label>
         <br />
         <br />
@@ -29,7 +29,6 @@
             type="number"
             name="massaCorporal"
             id="massaCorporal"
-            value="74"
           />
         </label>
         <br />
@@ -45,7 +44,7 @@
         <label for="est"
           >Altura em centímetros
           <br />
-          <input type="number" name="est" id="est" value="186" />
+          <input type="number" name="est" id="est"/>
         </label>
         <br />
         <br />
@@ -58,7 +57,14 @@
         <label for="idade"
           >Idade
           <br />
-          <input type="number" name="idade" id="idade" value="22" />
+          <input type="number" name="idade" id="idade"/>
+        </label>
+        <br>
+        <br>
+        <label for="gordura"
+          >Gordura em % exemplo(35.5)
+          <br />
+          <input type="number" name="gordura" id="gordura"/>
         </label>
         <br />
         <br />
@@ -133,6 +139,30 @@
         <input type="number" name="CP" id="CP" />
         <br />
         <br />
+        <h2>Questionário Dinamômetro</h2>
+        <br>
+        <label for="dinamometro"> Força de Preensão Palmar com Dinamômetro
+          <br>
+          <input type="number" name="dinamometro" id="dinamometro" >
+        </label>
+        <br>
+        <br />
+        <h2>Questionário TSL</h2>
+        <br>
+        <label for="tsl">Teste do sentar e levantar da cadeira (TSL) Segundos
+          <br>
+          <input type="number" name="tsl" id="tsl" >
+        </label>
+        <br>
+        <br/>
+        <h2>Questionário TUG</h2>
+        <br>
+        <label for="tug">Velocidade de marcha (Teste de TUG) m/s
+          <br>
+          <input type="number" name="tug" id="tug" >
+        </label>
+        <br>
+        <br/>
         <button type="submit" id="imprimir">Gerar laudo</button>
       </form>
       <script src="index.js"></script>

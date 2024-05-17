@@ -10,6 +10,11 @@ const levantar = document.querySelector("#levantar");
 const subir = document.querySelector("#subir");
 const cair = document.querySelector("#cair");
 const CP = document.querySelector("#CP");
+const dinamometro = document.querySelector("#dinamometro")
+const tsl = document.querySelector("#tsl")
+const tug = document.querySelector("#tug")
+const gordura = document.querySelector("#gordura")
+const aec = document.querySelector("#aec")
 
 const btnPrint = document.querySelector("#imprimir");
 
@@ -26,14 +31,19 @@ function massaMuscularEsqueletica(event) {
   const idadeValue = Number(idade.value);
   const sexoValue = Number(sexo.value);
   const etniaValue = Number(etnia.value);
+  const gorduraValue = Number(gordura.value)
+  const aecValue = Number(aec.value)
 
   const carregarValue = Number(carregar.value);
   const atravessarValue = Number(atravessar.value);
   const levantarValue = Number(levantar.value);
   const subirValue = Number(subir.value);
   const cairValue = Number(cair.value);
-
   const CPValue = Number(CP.value);
+  const dinamometroValue = Number(dinamometro.value)
+  const tslValue = Number(tsl.value)
+  const tugValue = Number(tug.value)
+
 
   const CPponto = () => {
     if (sexoValue === 1) {
@@ -44,6 +54,21 @@ function massaMuscularEsqueletica(event) {
       else return 0;
     }
   };
+
+  const dinamometroForca = () => {
+    if (sexoValue === 1) {
+      if (dinamometroValue < 27) return "Fraqueza muscular"
+      else return "Força muscular normal"
+    } else {
+      if (dinamometroValue < 16) return "Fraqueza muscular"
+      else return "Força muscular normal"
+    }
+  };
+
+  const testeSentarELevantar = () => {
+    if (tsl > 15) return "Fraqueza muscular"
+    else dinamometroForca()
+  }
 
   function diagnosticoSarcopenia() {
     const soma =
@@ -56,14 +81,18 @@ function massaMuscularEsqueletica(event) {
     return soma;
   }
 
-  const sarcCalf = diagnosticoSarcopenia();
+  const sarcCalfInterpretacao = () => {
+    if (diagnosticoSarcopenia() >= 11) return "Sarcopenia Positiva"
+    else return "Sarcopenia Negativa"
+  }
 
-  // const mme = (
-  //   0.244 * massaCorporalValue +
-  //   7.8 * alturaValue -
-  //   (0.098 * idadeValue + (6.6 * sexoValue + etniaValue)) -
-  //   3.3
-  // ).toFixed(2);
+  const caminhadaInterpretacao = () => {
+    if (tugValue < 12.4) {
+      return "Caminhada lenta"}
+    else {
+      return "caminhada normal"
+    }
+  }
 
   const mme = (
     0.244 * massaCorporalValue +
@@ -73,6 +102,8 @@ function massaMuscularEsqueletica(event) {
     (etniaValue - 3.3)
   ).toFixed(2);
 
+  const immea = (Number(mme) / (alturaValue ** 2)).toFixed(2)
+
   function femaleOrMale(sex) {
     if (sex === 0) {
       return "(x)F ( )M";
@@ -80,6 +111,12 @@ function massaMuscularEsqueletica(event) {
     if (sex === 1) {
       return "( )F (x)M";
     }
+  }
+
+  const gorduraMin = gorduraValue / 100
+
+  function gorduraEmKg() {
+    return massaCorporalValue * gorduraMin
   }
 
   const day = new Date();
@@ -98,7 +135,7 @@ function massaMuscularEsqueletica(event) {
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"
       />
-      <title>Document</title>
+      <title>${cName}</title>
     </head>
     <body>
       <header>
@@ -139,19 +176,35 @@ function massaMuscularEsqueletica(event) {
                 <tbody>
                   <tr>
                     <td>Sarc-Calf </td>
-                    <td>${sarcCalf}</td>
+                    <td>${diagnosticoSarcopenia()}s</td>
                   </tr>
                   <tr>
-                    <td>Test TSL (>= 15 seg)</td>
-                    <td>15</td>
+                    <td>Dinamômetro </td>
+                    <td>${dinamometroValue}kg</td>
+                  </tr>
+                  <tr>
+                    <td>Test TSL</td>
+                    <td>${tslValue}s</td>
                   </tr>
                   <tr>
                     <td>Bioimpedância (MMEA)</td>
-                    <td>${mme}</td>
+                    <td>${mme}Kg</td>
                   </tr>
                   <tr>
-                    <td>Test TUG (>= 20 s)</td>
-                    <td>9,8</td>
+                    <td>IMMEA</td>
+                    <td>${immea}/²</td>
+                  </tr>
+                  <tr>
+                    <td>Test TUG</td>
+                    <td>${tugValue}m/s</td>
+                  </tr>
+                  <tr>
+                    <td>Gordura</td>
+                    <td>${gorduraEmKg()}Kg</td>
+                  </tr>
+                  <tr>
+                    <td>Taxa de AEC</td>
+                    <td>${aecValue}48.3%</td>
                   </tr>
                 </tbody>
               </table>
@@ -163,10 +216,10 @@ function massaMuscularEsqueletica(event) {
         </article>
         <article class="interpretracao">
           <h2>INTERPRETAÇÃO DOS TESTES</h2>
-          <p>Interpretação do Sarc-Calf: ${sarcCalf >= 11 ? "Sarcopenia Positiva": "Sarcopenia Negativa"}</p>
-          <p>Teste TSL: Fraqueza muscular</p>
+          <p>Interpretação do Sarc-Calf: ${sarcCalfInterpretacao()}</p>
+          <p>Teste TSL: ${testeSentarELevantar()}</p>
           <p>Bioimpedância: Massa muscular normal</p>
-          <p>Test TUG (tempo em segundos): Velocidade de caminhada normal</p>
+          <p>Test TUG: ${caminhadaInterpretacao()}</p>
         </article>
         <article class="resultado">
           <h2>RESULTADO FINAL</h2>
@@ -189,5 +242,5 @@ function massaMuscularEsqueletica(event) {
   </html>`;
 
   win.document.write(html);
-  console.log(pontos);
+  console.log(gorduraMin);
 }
