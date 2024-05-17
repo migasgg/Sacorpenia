@@ -121,3 +121,12 @@ footer img {
 .loc p {
   text-align: right;
 }
+
+#input {
+  width: 100%;
+  text-align: center;
+  font-weight: 900;
+  font-size: 16px;
+  /* height: 100px; */
+  border: none;
+}

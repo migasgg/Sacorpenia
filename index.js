@@ -15,6 +15,8 @@ const tsl = document.querySelector("#tsl")
 const tug = document.querySelector("#tug")
 const gordura = document.querySelector("#gordura")
 const aec = document.querySelector("#aec")
+const qualidadeGordura = document.querySelector("#qualidadeGordura")
+const nivelHidratacao = document.querySelector("#nivelHidratacao")
 
 const btnPrint = document.querySelector("#imprimir");
 
@@ -33,6 +35,8 @@ function massaMuscularEsqueletica(event) {
   const etniaValue = Number(etnia.value);
   const gorduraValue = Number(gordura.value)
   const aecValue = Number(aec.value)
+  const qualidadeGorduraValue = qualidadeGordura.value
+  const nivelHidratacaoValue = nivelHidratacao.value
 
   const carregarValue = Number(carregar.value);
   const atravessarValue = Number(atravessar.value);
@@ -43,6 +47,7 @@ function massaMuscularEsqueletica(event) {
   const dinamometroValue = Number(dinamometro.value)
   const tslValue = Number(tsl.value)
   const tugValue = Number(tug.value)
+  
 
 
   const CPponto = () => {
@@ -119,6 +124,16 @@ function massaMuscularEsqueletica(event) {
     return massaCorporalValue * gorduraMin
   }
 
+  function bioimpedanciaInterpretação() {
+    if (sexoValue === 1) {
+      if (mme < 15) return "Baixa massa muscular"
+      else return "Massa muscular normal"
+    } else {
+      if (mme < 20) return "Baixa massa muscular"
+      else return "Massa muscular normal"
+    }
+  }
+
   const day = new Date();
 
   const win = window.open("print.html");
@@ -183,7 +198,7 @@ function massaMuscularEsqueletica(event) {
                     <td>${dinamometroValue}kg</td>
                   </tr>
                   <tr>
-                    <td>Test TSL</td>
+                    <td>TSL</td>
                     <td>${tslValue}s</td>
                   </tr>
                   <tr>
@@ -204,7 +219,7 @@ function massaMuscularEsqueletica(event) {
                   </tr>
                   <tr>
                     <td>Taxa de AEC</td>
-                    <td>${aecValue}48.3%</td>
+                    <td>${aecValue}%</td>
                   </tr>
                 </tbody>
               </table>
@@ -217,14 +232,16 @@ function massaMuscularEsqueletica(event) {
         <article class="interpretracao">
           <h2>INTERPRETAÇÃO DOS TESTES</h2>
           <p>Interpretação do Sarc-Calf: ${sarcCalfInterpretacao()}</p>
-          <p>Teste TSL: ${testeSentarELevantar()}</p>
-          <p>Bioimpedância: Massa muscular normal</p>
+          <p>TSL: ${testeSentarELevantar()}</p>
+          <p>Bioimpedância: ${bioimpedanciaInterpretação()}</p>
           <p>Test TUG: ${caminhadaInterpretacao()}</p>
+          <p>Gordura corporal: ${qualidadeGorduraValue}</p>
+          <p>Taxa de AEC: ${nivelHidratacaoValue}</p>
         </article>
         <article class="resultado">
           <h2>RESULTADO FINAL</h2>
           <p>
-            Sarcopenia positiva e indicação de treinamento de força progressiva
+            <input type="text" id="input" value="Sarcopenia positiva e indicação de treinamento de força progressiva" >
           </p>
         </article>
       </main>
