@@ -72,7 +72,7 @@ function massaMuscularEsqueletica(event) {
 
   const testeSentarELevantar = () => {
     if (tsl > 15) return "Fraqueza muscular"
-    else dinamometroForca()
+    else return dinamometroForca()
   }
 
   function diagnosticoSarcopenia() {
@@ -150,7 +150,7 @@ function massaMuscularEsqueletica(event) {
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"
       />
-      <title>${cName}</title>
+      <title>${cNameValue}</title>
     </head>
     <body>
       <header>
