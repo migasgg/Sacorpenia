@@ -111,7 +111,7 @@ th {
 footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 100px;
+  margin-top: 110px;
 }
 
 footer img {
@@ -120,6 +120,7 @@ footer img {
 
 .loc p {
   text-align: right;
+  font-size: 14px;
 }
 
 #input {
