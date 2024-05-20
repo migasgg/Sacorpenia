@@ -111,7 +111,7 @@ th {
 footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 8rem;
+  margin-top: 100px;
 }
 
 footer img {
