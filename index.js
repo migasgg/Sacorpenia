@@ -121,7 +121,7 @@ function massaMuscularEsqueletica(event) {
   const gorduraMin = gorduraValue / 100
 
   function gorduraEmKg() {
-    return massaCorporalValue * gorduraMin
+    return (massaCorporalValue * gorduraMin).toFixed(2)
   }
 
   function bioimpedanciaInterpretação() {
@@ -173,7 +173,7 @@ function massaMuscularEsqueletica(event) {
             </div>
             <div>
               <p>SEXO: <span>${femaleOrMale(sexoValue)}</span></p>
-              <p>DATA: <span>${day.getDate()} / ${day.getMonth()} / ${day.getFullYear()}</span></p>
+              <p>DATA: <span>${day.getDate()} / ${day.getMonth() + 1} / ${day.getFullYear()}</span></p>
             </div>
           </div>
           <div class="coleta">
@@ -191,7 +191,7 @@ function massaMuscularEsqueletica(event) {
                 <tbody>
                   <tr>
                     <td>Sarc-Calf </td>
-                    <td>${diagnosticoSarcopenia()}s</td>
+                    <td>${diagnosticoSarcopenia()}</td>
                   </tr>
                   <tr>
                     <td>Dinamômetro </td>
