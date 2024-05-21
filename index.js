@@ -63,16 +63,16 @@ function massaMuscularEsqueletica(event) {
   const dinamometroForca = () => {
     if (sexoValue === 1) {
       if (dinamometroValue < 27) return "Fraqueza muscular"
-      else return "Força muscular normal"
+      else testeSentarELevantar()
     } else {
       if (dinamometroValue < 16) return "Fraqueza muscular"
-      else return "Força muscular normal"
+      else testeSentarELevantar()
     }
   };
 
   const testeSentarELevantar = () => {
-    if (tsl > 15) return "Fraqueza muscular"
-    else return dinamometroForca()
+    if (tslValue > 15) return "Fraqueza muscular"
+    else return "Força muscular normal"
   }
 
   function diagnosticoSarcopenia() {
@@ -124,12 +124,12 @@ function massaMuscularEsqueletica(event) {
     return (massaCorporalValue * gorduraMin).toFixed(2)
   }
 
-  function bioimpedanciaInterpretação() {
+  function bioimpedanciaInterpretacao() {
     if (sexoValue === 1) {
-      if (mme < 15) return "Baixa massa muscular"
+      if (immea > 8.9) return "Baixa massa muscular"
       else return "Massa muscular normal"
     } else {
-      if (mme < 20) return "Baixa massa muscular"
+      if (immea < 6.4) return "Baixa massa muscular"
       else return "Massa muscular normal"
     }
   }
@@ -202,12 +202,8 @@ function massaMuscularEsqueletica(event) {
                     <td>${tslValue}s</td>
                   </tr>
                   <tr>
-                    <td>Bioimpedância (MMEA)</td>
-                    <td>${mme}Kg</td>
-                  </tr>
-                  <tr>
-                    <td>IMMEA</td>
-                    <td>${immea}/²</td>
+                    <td>Bioimpedância (IMMEA)</td>
+                    <td>${immea}kg/m²</td>
                   </tr>
                   <tr>
                     <td>Test TUG</td>
@@ -232,8 +228,8 @@ function massaMuscularEsqueletica(event) {
         <article class="interpretracao">
           <h2>INTERPRETAÇÃO DOS TESTES</h2>
           <p>Interpretação do Sarc-Calf: ${sarcCalfInterpretacao()}</p>
-          <p>TSL: ${testeSentarELevantar()}</p>
-          <p>Bioimpedância: ${bioimpedanciaInterpretação()}</p>
+          <p>TSL / Dinamômetro: ${dinamometroForca()}</p>
+          <p>Bioimpedância: ${bioimpedanciaInterpretacao()}</p>
           <p>Test TUG: ${caminhadaInterpretacao()}</p>
           <p>Gordura corporal: ${qualidadeGorduraValue}</p>
           <p>Taxa de AEC: ${nivelHidratacaoValue}</p>
