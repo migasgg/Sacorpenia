@@ -60,6 +60,11 @@ function massaMuscularEsqueletica(event) {
     }
   };
 
+  const testeSentarELevantar = () => {
+    if (tslValue > 15) return "Fraqueza muscular"
+    else return "Força muscular normal"
+  }
+
   const dinamometroForca = () => {
     if (sexoValue === 1) {
       if (dinamometroValue < 27) return "Fraqueza muscular"
@@ -69,11 +74,6 @@ function massaMuscularEsqueletica(event) {
       else testeSentarELevantar()
     }
   };
-
-  const testeSentarELevantar = () => {
-    if (tslValue > 15) return "Fraqueza muscular"
-    else return "Força muscular normal"
-  }
 
   function diagnosticoSarcopenia() {
     const soma =
