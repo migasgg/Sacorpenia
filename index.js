@@ -48,8 +48,6 @@ function massaMuscularEsqueletica(event) {
   const tslValue = Number(tsl.value)
   const tugValue = Number(tug.value)
   
-
-
   const CPponto = () => {
     if (sexoValue === 1) {
       if (CPValue <= 34) return 10;
@@ -60,20 +58,22 @@ function massaMuscularEsqueletica(event) {
     }
   };
 
+  const dinamometroForca = () => {
+    if (sexoValue === 1) {
+      if (dinamometroValue < 27) return "Fraqueza muscular"
+      else return testeSentarELevantar()
+    }
+    if (sexoValue === 0) {
+      if (dinamometroValue < 16) return "Fraqueza muscular"
+      else return testeSentarELevantar()
+    }
+  };
+
   const testeSentarELevantar = () => {
     if (tslValue > 15) return "Fraqueza muscular"
     else return "Força muscular normal"
   }
 
-  const dinamometroForca = () => {
-    if (sexoValue === 1) {
-      if (dinamometroValue < 27) return "Fraqueza muscular"
-      else testeSentarELevantar()
-    } else {
-      if (dinamometroValue < 16) return "Fraqueza muscular"
-      else testeSentarELevantar()
-    }
-  };
 
   function diagnosticoSarcopenia() {
     const soma =
@@ -92,11 +92,8 @@ function massaMuscularEsqueletica(event) {
   }
 
   const caminhadaInterpretacao = () => {
-    if (tugValue < 12.4) {
-      return "Caminhada lenta"}
-    else {
-      return "caminhada normal"
-    }
+    if (tugValue < 12.4) return "Caminhada lenta"
+    else return "caminhada normal"
   }
 
   const mme = (
@@ -110,12 +107,8 @@ function massaMuscularEsqueletica(event) {
   const immea = (Number(mme) / (alturaValue ** 2)).toFixed(2)
 
   function femaleOrMale(sex) {
-    if (sex === 0) {
-      return "(x)F ( )M";
-    }
-    if (sex === 1) {
-      return "( )F (x)M";
-    }
+    if (sex === 0) return "(x)F ( )M";
+    if (sex === 1) return "( )F (x)M";
   }
 
   const gorduraMin = gorduraValue / 100
@@ -146,10 +139,7 @@ function massaMuscularEsqueletica(event) {
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="printStyle.css" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet"
-      />
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
       <title>${cNameValue}</title>
     </head>
     <body>
@@ -159,7 +149,7 @@ function massaMuscularEsqueletica(event) {
           <strong>Cref: 0486-G/PI</strong>
         </div>
         <div>
-          <h2>Dr Jancineide Carvalho</h2>
+          <h2>Dra. Jancineide Carvalho</h2>
           <strong>Cref: 0274-G/PI</strong>
         </div>
       </header>
@@ -180,7 +170,7 @@ function massaMuscularEsqueletica(event) {
             <div>
               <table>
                 <caption>
-                  Resultados da Coleta
+                Analise de força muscular e composição corporal
                 </caption>
                 <thead>
                   <tr>
@@ -232,7 +222,7 @@ function massaMuscularEsqueletica(event) {
           <p>Bioimpedância: ${bioimpedanciaInterpretacao()}</p>
           <p>Test TUG: ${caminhadaInterpretacao()}</p>
           <p>Gordura corporal: ${qualidadeGorduraValue}</p>
-          <p>Taxa de AEC: ${nivelHidratacaoValue}</p>
+          <p>Taxa de AEC: ${nivelHidratacaoValue}</p> 
         </article>
         <article class="resultado">
           <h2>RESULTADO FINAL</h2>
@@ -255,5 +245,5 @@ function massaMuscularEsqueletica(event) {
   </html>`;
 
   win.document.write(html);
-  console.log(gorduraMin);
+  console.log(dinamometroForca());
 }
