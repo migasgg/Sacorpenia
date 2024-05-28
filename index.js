@@ -92,15 +92,15 @@ function massaMuscularEsqueletica(event) {
   }
 
   const caminhadaInterpretacao = () => {
-    if (tugValue < 12.4) return "Caminhada lenta"
-    else return "caminhada normal"
+    if (tugValue < 12.4) return "Caminhada normal"
+    else return "caminhada lenta"
   }
 
   const mme = (
     0.244 * massaCorporalValue +
     7.8 * alturaValue +
-    6.6 * sexoValue -
-    0.098 * idadeValue +
+    (6.6 * sexoValue -
+    0.098 * idadeValue)  +
     (etniaValue - 3.3)
   ).toFixed(2);
 
@@ -170,7 +170,7 @@ function massaMuscularEsqueletica(event) {
             <div>
               <table>
                 <caption>
-                Analise de força muscular e composição corporal
+                Análise de força muscular e composição corporal
                 </caption>
                 <thead>
                   <tr>
@@ -245,5 +245,5 @@ function massaMuscularEsqueletica(event) {
   </html>`;
 
   win.document.write(html);
-  console.log(dinamometroForca());
+  console.log(mme);
 }
