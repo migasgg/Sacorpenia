@@ -93,7 +93,7 @@ function massaMuscularEsqueletica(event) {
 
   const caminhadaInterpretacao = () => {
     if (tugValue < 12.4) return "Caminhada normal"
-    else return "caminhada lenta"
+    else return "Caminhada lenta"
   }
 
   const mme = (
@@ -138,7 +138,8 @@ function massaMuscularEsqueletica(event) {
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="printStyle.css" />
+      <link rel="stylesheet" href="printStyle.css" media="screen"/>
+      <link rel="stylesheet" href="printStylePrint.css" media="print"/>
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
       <title>${cNameValue}</title>
     </head>
@@ -229,6 +230,8 @@ function massaMuscularEsqueletica(event) {
           <p>
             <input type="text" id="input" value="Sarcopenia positiva e indicação de treinamento de força progressiva" >
           </p>
+          
+          <button id="imprimir">Imprimir</button>
         </article>
       </main>
       <footer>
@@ -241,6 +244,7 @@ function massaMuscularEsqueletica(event) {
           <p>Bairro Fátima, 64049-440</p>
         </div>
       </footer>
+      <script src="print.js"></script>
     </body>
   </html>`;
 
