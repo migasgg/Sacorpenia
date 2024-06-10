@@ -23,6 +23,7 @@ header {
 header h2 {
   color: #36680d;
   font-weight: bolder;
+  font-size: 1.3rem;
 }
 
 article h1 {
@@ -31,7 +32,7 @@ article h1 {
   font-style: italic;
   color: white;
   padding: 0.4rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 900;
   margin-bottom: 1rem;
 }
